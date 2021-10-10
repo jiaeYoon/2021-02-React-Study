@@ -1,23 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import Title from './component/Title';
+import Title_btn from './component/Title_btn';
+import React, {Component} from 'react';
+import { useState } from 'react';
 
 function App() {
+
+  var styles={paddingLeft: "50px"};
+  const [title, setTitle] = useState('민휘');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={styles}>
+      <Title content={title}/>
+      <Title_btn 
+        onChangePage = {function(){
+          setTitle(title === '민휘'?'리액트 스터디 화이팅!':'민휘');
+        }}
+      />
     </div>
   );
 }
